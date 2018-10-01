@@ -27,6 +27,10 @@
     <webjars-jquery.version>2.2.4</webjars-jquery.version>
     <wro4j.version>1.8.0</wro4j.version>
 
+    <!-- JAXB dependencies have been removed from Java9, hence re-adding -->
+    <!-- <javax-jaxb.version>2.3.0</javax-jaxb.version>
+    <javax-activation.version>1.1.1</javax-activation.version> -->
+
     <jacoco.version>0.8.1</jacoco.version>
 
     <dockerfile-maven-plugin.version>1.3.6</dockerfile-maven-plugin.version>
@@ -34,6 +38,35 @@
   </properties>
 
   <dependencies>
+    <!-- JavaX Activation and JAXB dependencies needed for Java 9 and higher 
+         but this is breaking semantics and requires further work, hence downgrading the 
+         docker image to JDK 8 instead of 11
+    -->
+    <!--dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+      <version>${javax-jaxb.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-core</artifactId>
+    <version>${javax-jaxb.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-impl</artifactId>
+      <version>${javax-jaxb.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.activation</groupId>
+      <artifactId>activation</artifactId>
+      <version>${javax-activation.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.dataformat</groupId>
+      <artifactId>jackson-dataformat-xml</artifactId>
+    </dependency-->
+
     <!-- Spring and Spring Boot dependencies -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -221,7 +254,7 @@
           <repository>mszcool/springpetclinic</repository>
           <tag>${project.version}</tag>
           <buildArgs>
-              <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+              <TARGET_FILE>target/${project.build.finalName}</TARGET_FILE>
           </buildArgs>
         </configuration>
       </plugin>
