@@ -132,7 +132,7 @@ set ERROR_CODE=1
 @endlocal & set ERROR_CODE=%ERROR_CODE%
 
 if not "%MAVEN_SKIP_RC%" == "" goto skipRcPost
-@REM check for post script, once with legacy .bat ending and once with .cmd ending
+@REM check for post script, once witgit  legacy .bat ending and once with .cmd ending
 if exist "%HOME%\mavenrc_post.bat" call "%HOME%\mavenrc_post.bat"
 if exist "%HOME%\mavenrc_post.cmd" call "%HOME%\mavenrc_post.cmd"
 :skipRcPost
