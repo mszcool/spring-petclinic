@@ -12,4 +12,4 @@ ENV MYSQL_PASSWORD=pleaseoverridewithenvparameteratruntime
 
 COPY ${JAR_FILE} application
 
-ENTRYPOINT java -jar /application/target/spring-petclinic-2.0.0.BUILD-SNAPSHOT.jar --database=mysql --spring.datasource.url=$MYSQL_HOST --spring.datasource.username=$MYSQL_USER --spring.datasource.password=$MYSQL_PASSWORD
+ENTRYPOINT java -jar /application/spring-petclinic-2.0.0.BUILD-SNAPSHOT.jar --database=mysql --spring.datasource.url=$MYSQL_HOST --spring.datasource.username=$MYSQL_USER --spring.datasource.password=$MYSQL_PASSWORD
