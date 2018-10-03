@@ -34,6 +34,9 @@
 
     <dockerfile-maven-plugin.version>1.3.6</dockerfile-maven-plugin.version>
 
+    <msazure-applicationinsights.version>2.2.0</msazure-applicationinsights.version>
+    <msazure-applicationinsights-springboot.version>1.1.0-BETA</msazure-applicationinsights-springboot.version>
+
   </properties>
 
   <dependencies>
@@ -142,6 +145,19 @@
       <artifactId>spring-boot-devtools</artifactId>
       <optional>true</optional>
     </dependency>
+
+    <!-- Microsoft Azure Application Insights -->
+    <dependency>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>applicationinsights-web</artifactId>
+      <version>${msazure-applicationinsights.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>applicationinsights-spring-boot-starter</artifactId>
+      <version>${msazure-applicationinsights-springboot.version}</version>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -241,7 +257,7 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
-          <forkCount>3</forkCount>
+          <forkCount>1</forkCount>
           <reuseForks>true</reuseForks>
           <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
         </configuration>
