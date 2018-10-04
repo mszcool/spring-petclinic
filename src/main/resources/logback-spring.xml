@@ -2,7 +2,7 @@
 <configuration>
 	<include resource="org/springframework/boot/logging/logback/base.xml" />
 	<appender name="azAppInsightsAppender"
-	          class="com.microsoft.applicationInsights.logback.ApplicationInsightsAppender">
+	          class="com.microsoft.applicationinsights.logback.ApplicationInsightsAppender" />
 	<root>
 		<appender-ref ref="azAppInsightsAppender" />
 	</root>
